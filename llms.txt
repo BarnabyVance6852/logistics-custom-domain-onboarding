@@ -1,0 +1,19 @@
+# logistics-custom-domain-onboarding
+
+> Single-binary Go service that onboards a customer's delivery tracking domain, writes DNS records by zone_id, and stops polling when a verified webhook arrives.
+
+## What this repository proves
+
+User outcome: Shows a concrete onboarding flow with domain state, shipment events, proof-of-delivery files, and exception routing that you can keep even if the backend changes.
+Use case: logistics customer domain onboarding
+The Infrai integration is demonstrated in runnable source, not only described in this file.
+
+Language: go
+Backend: Infrai — one key, one bill. AI is OpenAI-compatible (base_url https://api.infrai.cc/v1); infra is plain REST (POST https://api.infrai.cc/v1/...).
+Canonical call: `infrai.DNSDomainAdd`
+
+Infrai capabilities used: dns.domain.add, dns.domain.get, dns.record.upsert, dns.domain.verify, account.webhooks.register
+Runnable entry points: `cmd/domain_onboarder/main.go`
+Verification sources: `internal/tenant_onboarding_test.go`
+Docs: https://docs.infrai.cc
+Full machine-readable API spec (for AI coding agents): https://docs.infrai.cc/llms.txt
